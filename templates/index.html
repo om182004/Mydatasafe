@@ -2,41 +2,213 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MyDataSafe | Data Privacy Portal</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home | MyDataSafe</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Orbitron:wght@600&display=swap" rel="stylesheet" />
+
+  <!-- Optional: Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
   <style>
-    body { background-color: #f8f9fa; }
-    .hero { background-color: #0d6efd; color: white; padding: 80px 20px; text-align: center; }
-    .section { padding: 40px 20px; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f7fa;
+    }
+
+    .navbar-brand {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 600;
+      font-size: 1.8rem;
+    }
+
+    .hero-section {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero-section h1 {
+      font-size: 3rem;
+      font-weight: 600;
+    }
+
+    .hero-section p {
+      font-size: 1.2rem;
+    }
+
+    .features-section, .about-section, .cta-section {
+      padding: 60px 20px;
+    }
+
+    .feature-card {
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      color: #2575fc;
+      margin-bottom: 15px;
+    }
+
+    .section-title {
+      font-weight: 600;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .about-section {
+      background-color: #fff;
+      border-radius: 20px;
+    }
+
+    .testimonial {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+    }
+
+    .cta-section {
+      background: linear-gradient(to right, #2575fc, #6a11cb);
+      color: white;
+      text-align: center;
+      border-radius: 20px;
+    }
+
+    .cta-section h3 {
+      font-weight: 600;
+    }
+
+    .btn-custom {
+      background-color: white;
+      color: #2575fc;
+      border: none;
+      padding: 12px 30px;
+      font-weight: 600;
+      border-radius: 30px;
+      transition: background 0.3s ease;
+    }
+
+    .btn-custom:hover {
+      background-color: #e3e8f0;
+      color: #2575fc;
+    }
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container">
-      <a class="navbar-brand" href="#">MyDataSafe</a>
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-          <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+
+  <!-- Navbar (copied from navbar.html) -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{{ url_for('home') }}">MyDataSafe</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('register') }}">Register</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('privacy_tips') }}">Privacy Tips</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('data_rights') }}">Data Rights</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('privacy_tools') }}">Privacy Tools</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('news_alerts') }}">News & Breach Alerts</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('digital_footprint') }}">Digital Footprint Tracker</a></li>
         </ul>
       </div>
     </div>
   </nav>
-  <div class="hero">
-    <h1>Welcome to MyDataSafe</h1>
-    <p>Your data. Your control. Your privacy.</p>
-    <a href="{{ url_for('register') }}" class="btn btn-light mt-3">Get Started</a>
 
-  </div>
-  <div class="section text-center">
-    <div class="container">
-      <h2>About the Project</h2>
-      <p>This website demonstrates how personal data can be collected securely and transparently, following modern data privacy laws and user-centric design.</p>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <h1>Welcome to MyDataSafe</h1>
+    <p>Your personal data privacy awareness and protection hub</p>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section container">
+    <h2 class="section-title">Explore Our Features</h2>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="card feature-card p-4 text-center">
+          <div class="feature-icon"><i class="fas fa-lock"></i></div>
+          <h5>Privacy Tips</h5>
+          <p>Stay safe online with tips on password hygiene, social media safety & more.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card feature-card p-4 text-center">
+          <div class="feature-icon"><i class="fas fa-user-shield"></i></div>
+          <h5>Data Rights</h5>
+          <p>Understand your rights under privacy laws like GDPR, CCPA, and others.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card feature-card p-4 text-center">
+          <div class="feature-icon"><i class="fas fa-tools"></i></div>
+          <h5>Privacy Tools</h5>
+          <p>Learn about tools like VPNs, 2FA apps, password managers, and more.</p>
+        </div>
+      </div>
     </div>
-  </div>
-  <footer class="bg-dark text-white text-center py-3">
-    <p>&copy; 2025 MyDataSafe | Designed for Educational Purposes</p>
-  </footer>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section container my-5 p-5">
+    <h2 class="section-title">About MyDataSafe</h2>
+    <p class="text-center">
+      MyDataSafe is your one-stop destination for understanding and managing your digital privacy.
+      Our mission is to educate users on how to protect their data, navigate privacy laws,
+      and take control of their digital footprint. Whether you’re a student, a working professional,
+      or just someone who wants to browse the internet more safely — we’ve got you covered!
+    </p>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="container my-5">
+    <h2 class="section-title">What Users Say</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="testimonial">
+          <p><strong>Riya S.</strong></p>
+          <p>"This website helped me learn how to protect my social media accounts. Love the tips!"</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="testimonial">
+          <p><strong>Aarav M.</strong></p>
+          <p>"I never knew I had data rights! Thanks to MyDataSafe, I’ve taken action."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call To Action -->
+  <section class="cta-section container my-5 p-5">
+    <h3>Ready to take control of your privacy?</h3>
+    <p>Start exploring our tools and tips today.</p>
+    <a href="/register" class="btn btn-custom mt-3">Get Started</a>
+  </section>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

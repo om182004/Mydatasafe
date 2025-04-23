@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News & Breach Alerts | MyDataSafe</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+ <!-- Google Fonts for Navbar -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet" />
+<!-- Custom Navbar CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+ <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      margin-bottom: 30px;
+    }
+
+    .navbar-brand {
+      font-weight: 600;
+      font-size: 1.8rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #ff416c, #ff4b2b);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 600;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 20px;
+    }
+
+    /* Card Styles */
+    .news-card {
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 20px;
+    }
+
+    .news-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .news-icon {
+      font-size: 2rem;
+      color: #ff4b2b;
+    }
+
+    .news-date {
+      font-size: 0.9rem;
+      color: #6c757d;
+    }
+
+    .btn-custom {
+      background-color: #ff416c;
+      color: white;
+      border-radius: 20px;
+      padding: 10px 20px;
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-custom:hover {
+      background-color: #ff4b2b;
+    }
+
+    /* Section Title */
+    h2 {
+      font-weight: 600;
+      color: #333;
+    }
+
+    .lead {
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+  
+  
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>News & Breach Alerts</h1>
+    <p>Stay updated on the latest privacy incidents and alerts to protect your data.</p>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container py-5">
+    <h2 class="text-center mb-4">Latest News & Data Breach Alerts</h2>
+    <p class="lead text-center">Discover the latest data breaches, security flaws, and updates from the tech world.</p>
+
+    <div class="row">
+      <!-- News Card 1 -->
+      <div class="col-md-4">
+        <div class="card news-card p-4">
+          <div class="d-flex align-items-center mb-3">
+            <i class="bi bi-exclamation-triangle-fill news-icon me-3"></i>
+            <div>
+              <h5>Recent Data Breach at Facebook</h5>
+              <p class="news-date">April 12, 2025</p>
+            </div>
+          </div>
+          <p>In a recent breach, Facebook exposed the personal data of millions of users. Learn about the breach and steps you can take to protect your data.</p>
+          <a href="https://techcrunch.com/2018/09/28/everything-you-need-to-know-about-facebooks-data-breach-affecting-50m-users/" target="_blank" class="btn btn-custom">Read More</a>
+        </div>
+      </div>
+
+      <!-- News Card 2 -->
+      <div class="col-md-4">
+        <div class="card news-card p-4">
+          <div class="d-flex align-items-center mb-3">
+            <i class="bi bi-shield-lock news-icon me-3"></i>
+            <div>
+              <h5>Security Flaw Discovered in Oracle Software</h5>
+              <p class="news-date">April 10, 2025</p>
+            </div>
+          </div>
+          <p>Security experts have discovered a vulnerability in widely used software(Oracle). Here's what you need to know.</p>
+          <a href="https://cybersecuritynews.com/oracle-acknowledges-data-breach/" target="_blank" class="btn btn-custom">Read More</a>
+        </div>
+      </div>
+
+      <!-- News Card 3 -->
+      <div class="col-md-4">
+        <div class="card news-card p-4">
+          <div class="d-flex align-items-center mb-3">
+            <i class="bi bi-bell-fill news-icon me-3"></i>
+            <div>
+              <h5>The 18 Biggest Data Breaches of the 21st Century</h5>
+              <p class="news-date">April 5, 2025</p>
+            </div>
+          </div>
+          <p>Data breaches affecting millions of users are far too common. Here are some of the biggest, baddest breaches in recent memory.</p>
+          <a href="https://www.csoonline.com/article/534628/the-biggest-data-breaches-of-the-21st-century.html" target="_blank" class="btn btn-custom">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

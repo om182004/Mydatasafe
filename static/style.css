@@ -1,0 +1,115 @@
+/* NAVBAR */
+.navbar-custom {
+  background-color: #001f3f;
+  padding: 15px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  color: #00d1ff !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+  color: #00ffff !important;
+}
+
+.navbar-nav .nav-link {
+  color: #ffffff !important;
+  font-weight: 500;
+  margin-left: 20px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #00d1ff;
+  transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #00d1ff !important;
+}
+
+@media (max-width: 991px) {
+  .navbar-nav .nav-link {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
+/* HERO SECTION */
+/* HERO SECTION - Restored Gradient Background */
+.hero {
+  background: linear-gradient(135deg, #001f3f, #004080, #0066cc);
+  background-size: 400% 400%;
+  animation: gradientFlow 15s ease infinite;
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* GET STARTED BUTTON - Live Glow Effect */
+.btn-get-started {
+  background-color: #00d1ff;
+  color: #001f3f;
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #00d1ff, 0 0 20px #00d1ff;
+  animation: pulseGlow 2s infinite;
+}
+
+.btn-get-started:hover {
+  background-color: #00ffff;
+  color: #001f3f;
+  box-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 10px #00d1ff, 0 0 20px #00d1ff;
+  }
+  50% {
+    box-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff;
+  }
+  100% {
+    box-shadow: 0 0 10px #00d1ff, 0 0 20px #00d1ff;
+  }
+}

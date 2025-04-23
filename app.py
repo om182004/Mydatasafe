@@ -1,17 +1,73 @@
-from flask import Flask, render_template
+import sqlite3
+from flask import Flask, render_template, request, redirect, url_for
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 
-@app.route("/")
+# Function to connect to SQLite database
+def get_db_connection():
+    conn = sqlite3.connect('users.db')
+    conn.row_factory = sqlite3.Row
+    return conn
+
+@app.route('/')
 def home():
-    return render_template("index.html")
+    return render_template('index.html')
 
-@app.route("/register")
+@app.route('/register', methods=['GET', 'POST'])
 def register():
-    return render_template("register.html")
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        password = request.form['password']
 
-@app.route("/login")
+        # Hash the password before storing it
+        hashed_password = generate_password_hash(password)
+
+        conn = get_db_connection()
+        c = conn.cursor()
+
+        # Check if the username or email already exists
+        c.execute("SELECT * FROM users WHERE username = ? OR email = ?", (username, email))
+        existing_user = c.fetchone()
+
+        if existing_user:
+            return "Username or Email already taken. Please try again."
+
+        # Insert the new user into the database
+        try:
+            c.execute("INSERT INTO users (username, email, password) VALUES (?, ?, ?)", (username, email, hashed_password))
+            conn.commit()
+        except Exception as e:
+            print(f"Error inserting data: {e}")
+            return "An error occurred during registration. Please try again later."
+
+        conn.close()
+        return redirect(url_for('login'))
+
+    return render_template('register.html')
+
+@app.route("/login", methods=['GET', 'POST'])
 def login():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+
+        conn = sqlite3.connect('users.db')
+        c = conn.cursor()
+        c.execute("SELECT * FROM users WHERE email = ?", (email,))
+        user = c.fetchone()
+        conn.close()
+
+        if user:
+            stored_password = user['password']  # password is stored in the 'password' field
+            if check_password_hash(stored_password, password):
+                return redirect(url_for('dashboard'))
+            else:
+                return "Invalid password!"
+        else:
+            return "User not found!"
+
     return render_template("login.html")
 
 @app.route("/dashboard")
@@ -26,9 +82,31 @@ def privacy():
 def download():
     return render_template("download.html")
 
-import os
+@app.route("/privacy-tips")
+def privacy_tips():
+    return render_template("privacy_tips.html")
+
+@app.route("/data-rights")
+def data_rights():
+    return render_template("data_rights.html")
+
+@app.route("/privacy-tools")
+def privacy_tools():
+    return render_template("privacy_tools.html")
+
+@app.route("/news-alerts")
+def news_alerts():
+    return render_template("news_alerts.html")
+
+@app.route('/digital-footprint', methods=['GET', 'POST'])
+def digital_footprint():
+    result = None
+    if request.method == 'POST':
+        email = request.form['email']
+        # Simulated result
+        result = f"No major breaches found for {email}. Your digital footprint is minimal. ✅"
+    return render_template('digital_footprint.html', result=result)
+
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port, debug=True)
-
+    app.run(host="0.0.0.0", port=5001, debug=True)

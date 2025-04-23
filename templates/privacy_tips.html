@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Tips | MyDataSafe</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a2d9a66b16.js" crossorigin="anonymous"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f7fa;
+    }
+
+    .page-header {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .tips-section {
+      padding: 40px 20px;
+    }
+
+    .card {
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      color: #2575fc;
+    }
+
+    .card-title {
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Shared Navigation Bar -->
+  {% include 'navbar.html' %}
+
+  <div class="page-header">
+    <h1>Privacy Tips</h1>
+    <p class="lead">Protect your data and stay safe online with these essential tips.</p>
+  </div>
+
+  <div class="container tips-section">
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-4">
+          <div class="card-body">
+            <div class="card-icon mb-2"><i class="fas fa-lock"></i></div>
+            <h5 class="card-title">Use Strong Passwords</h5>
+            <p class="card-text">Create complex, unique passwords and avoid reusing them across websites.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-4">
+          <div class="card-body">
+            <div class="card-icon mb-2"><i class="fas fa-user-shield"></i></div>
+            <h5 class="card-title">Social Media Safety</h5>
+            <p class="card-text">Limit the personal info you share and use privacy settings on all platforms.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-4">
+          <div class="card-body">
+            <div class="card-icon mb-2"><i class="fas fa-fingerprint"></i></div>
+            <h5 class="card-title">Enable 2FA</h5>
+            <p class="card-text">Use Two-Factor Authentication for an extra layer of account protection.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-4">
+          <div class="card-body">
+            <div class="card-icon mb-2"><i class="fas fa-globe"></i></div>
+            <h5 class="card-title">Browse Safely</h5>
+            <p class="card-text">Use secure (HTTPS) websites and avoid clicking on suspicious links or ads.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-4">
+          <div class="card-body">
+            <div class="card-icon mb-2"><i class="fas fa-mobile-alt"></i></div>
+            <h5 class="card-title">Review App Permissions</h5>
+            <p class="card-text">Check what apps are accessing and disable unnecessary permissions.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-4">
+          <div class="card-body">
+            <div class="card-icon mb-2"><i class="fas fa-envelope-open-text"></i></div>
+            <h5 class="card-title">Beware of Phishing</h5>
+            <p class="card-text">Avoid emails asking for personal info or links to unknown sites.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
