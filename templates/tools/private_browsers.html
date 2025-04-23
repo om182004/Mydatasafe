@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Private Browsers | MyDataSafe</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Orbitron:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <style>
+    body {
+      background-color: #f4f7fa;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .header {
+      background: linear-gradient(to right, #2575fc, #6a11cb);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .content {
+      padding: 40px 20px;
+    }
+
+    h2 {
+      font-weight: 600;
+      color: #2575fc;
+    }
+
+    .btn-back {
+      background-color: #2575fc;
+      color: white;
+      border-radius: 30px;
+      padding: 10px 25px;
+      margin-top: 20px;
+    }
+
+    .btn-back:hover {
+      background-color: #1a4cb2;
+    }
+  </style>
+</head>
+<body>
+
+  {% include 'navbar.html' %}
+
+  <div class="header">
+    <h1>Private Browsers</h1>
+    <p>Keep your web activity private and avoid tracking</p>
+  </div>
+
+  <div class="container content">
+    <h2>Why Use Private Browsers?</h2>
+    <p>Private browsers help prevent trackers, cookies, and ads from collecting data about your browsing behavior.</p>
+
+    <h4>Popular Private Browsers:</h4>
+    <ul>
+      <li><strong>Brave:</strong> Blocks ads and trackers automatically.</li>
+      <li><strong>Firefox Focus:</strong> Erases history after each session and blocks trackers.</li>
+      <li><strong>DuckDuckGo Browser:</strong> Includes built-in tracker blocking and encryption enforcement.</li>
+    </ul>
+
+    <h4>Benefits:</h4>
+    <ul>
+      <li>Reduces targeted ads</li>
+      <li>Improves browsing speed</li>
+      <li>Limits personal data exposure</li>
+    </ul>
+
+    <a href="{{ url_for('privacy_tools') }}" class="btn btn-back">Back to Privacy Tools</a>
+  </div>
+
+</body>
+</html>

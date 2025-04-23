@@ -106,6 +106,26 @@ def digital_footprint():
         # Simulated result
         result = f"No major breaches found for {email}. Your digital footprint is minimal. ✅"
     return render_template('digital_footprint.html', result=result)
+@app.route('/privacy-tools/password-managers')
+def password_managers():
+    return render_template('tools/password_managers.html')
+@app.route('/privacy-tools/vpns')
+def vpns():
+    return render_template('tools/vpns.html')
+@app.route('/privacy-tools/two-factor-auth')
+def two_factor_auth():
+    return render_template('tools/two_factor_auth.html')
+@app.route('/privacy-tools/private-browsers')
+def private_browsers():
+    return render_template('tools/private_browsers.html')
+@app.route('/privacy-tools/encrypted-storage')
+def encrypted_storage():
+    return render_template('tools/encrypted_storage.html')
+@app.route('/privacy-tools/data-cleaners')
+def data_cleaners():
+    print("Accessing Data Cleaners page")
+    return render_template('tools/data_cleaners.html')
+
 
 
 if __name__ == "__main__":
