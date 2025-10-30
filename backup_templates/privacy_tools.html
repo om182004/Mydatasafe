@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Tools | MyDataSafe</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Orbitron:wght@600&display=swap" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .card {
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card i {
+      font-size: 2.5rem;
+      color: #2575fc;
+      margin-bottom: 15px;
+    }
+
+    .section-title {
+      margin-bottom: 30px;
+    }
+
+    a.card-link {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Shared Navigation Bar -->
+  {% include 'navbar.html' %}
+
+  <div class="hero">
+    <h1>Essential Privacy Tools</h1>
+    <p>Protect your data with these powerful tools.</p>
+  </div>
+
+  <div class="container py-5">
+    <div class="row g-4">
+
+      <!-- Password Managers -->
+      <div class="col-md-6 col-lg-4">
+        <a href="{{ url_for('password_managers') }}" class="card-link">
+          <div class="card p-4 text-center">
+            <i class="bi bi-shield-lock-fill"></i>
+            <h5>Password Managers</h5>
+            <p>Securely store and manage all your passwords in one encrypted place.</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- VPNs -->
+      <div class="col-md-6 col-lg-4">
+        <a href="{{ url_for('vpns') }}" class="card-link">
+          <div class="card p-4 text-center">
+            <i class="bi bi-wifi-off"></i>
+            <h5>VPNs</h5>
+            <p>Browse the web anonymously and protect your IP address from trackers.</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- 2FA -->
+      <div class="col-md-6 col-lg-4">
+        <a href="{{ url_for('two_factor_auth') }}" class="card-link">
+          <div class="card p-4 text-center">
+            <i class="bi bi-lock-fill"></i>
+            <h5>Two-Factor Authentication</h5>
+            <p>Add an extra layer of security to your accounts beyond just passwords.</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Private Browsers -->
+      <div class="col-md-6 col-lg-4">
+        <a href="{{ url_for('private_browsers') }}" class="text-decoration-none text-dark">
+          <div class="card p-4 text-center">
+            <i class="bi bi-incognito"></i>
+            <h5>Private Browsers</h5>
+            <p>Use browsers like Brave or Firefox Focus to prevent tracking and ads.</p>
+          </div>
+        </a>
+      </div>
+      <!-- Encrypted Storage -->
+      <div class="col-md-6 col-lg-4">
+        <a href="{{ url_for('encrypted_storage') }}" class="text-decoration-none text-dark">
+          <div class="card p-4 text-center">
+            <i class="bi bi-hdd-lock-fill"></i>
+            <h5>Encrypted Storage</h5>
+            <p>Keep your sensitive files encrypted both locally and in the cloud.</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Data Cleaners -->
+      <div class="col-md-6 col-lg-4">
+        <a href="{{ url_for('data_cleaners') }}" class="text-decoration-none text-dark">
+          <div class="card p-4 text-center">
+            <i class="bi bi-trash3-fill"></i>
+            <h5>Data Cleaners</h5>
+            <p>Remove your digital traces and unnecessary personal data online.</p>
+          </div>
+        </a>
+      </div>
+      
+
+    </div>
+  </div>
+
+</body>
+</html>

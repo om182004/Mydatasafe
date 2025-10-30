@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Cleaners | MyDataSafe</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Orbitron:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .hero {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-weight: 600;
+    }
+
+    .content-section {
+      padding: 40px 20px;
+    }
+
+    .card {
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  {% include 'navbar.html' %}
+
+  <div class="hero">
+    <h1>Data Cleaners</h1>
+    <p>Remove traces of your digital activity across platforms.</p>
+  </div>
+
+  <div class="container content-section">
+    <div class="card p-4">
+      <h4>What are Data Cleaners?</h4>
+      <p>Data cleaners are tools that help you remove unused accounts, cookies, browsing history, cache, and personal data from online and local platforms.</p>
+
+      <h4>Popular Tools:</h4>
+      <ul>
+        <li><strong>CCleaner:</strong> Wipes browser history and junk files.</li>
+        <li><strong>JustDeleteMe:</strong> Helps you find and delete old accounts.</li>
+        <li><strong>BleachBit:</strong> Securely deletes unnecessary files and protects privacy.</li>
+      </ul>
+
+      <h4>Why Use Them?</h4>
+      <p>Data cleaners improve privacy, speed up your device, and reduce the chance of personal information leaks.</p>
+    </div>
+  </div>
+
+</body>
+</html>

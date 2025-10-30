@@ -1,22 +1,59 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="/" style="font-family: 'Orbitron', sans-serif; font-size: 1.5rem;">
-        MYDATASAFE
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="/privacy-tips">Privacy Tips</a></li>
-          <li class="nav-item"><a class="nav-link" href="/data-rights">Data Rights</a></li>
-          <li class="nav-item"><a class="nav-link" href="/privacy-tools">Privacy Tools</a></li>
-          <li class="nav-item"><a class="nav-link" href="/news-alerts">News</a></li>
-          <li class="nav-item"><a class="nav-link" href="/digital-footprint">Footprint Tracker</a></li>
-          <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
-          <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  
+<!-- templates/navbar.html -->
+<nav class="main-navbar">
+  <div class="container d-flex align-items-center justify-content-between">
+    <a class="navbar-brand d-flex align-items-center" href="{{ url_for('home') }}">
+      <span class="logo-text">MYDATASAFE</span>
+    </a>
+
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link {% if active=='privacy_tips' %}active{% endif %}" href="{{ url_for('privacy_tips') }}">Privacy Tips</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if active=='data_rights' %}active{% endif %}" href="{{ url_for('data_rights') }}">Data Rights</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if active=='privacy_tools' %}active{% endif %}" href="{{ url_for('privacy_tools') }}">Privacy Tools</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if active=='news_alerts' %}active{% endif %}" href="{{ url_for('news_alerts') }}">News & Breach Alerts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if active=='digital_footprint' %}active{% endif %}" href="{{ url_for('digital_footprint') }}">Digital Footprint Tracker</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if active=='login' %}active{% endif %}" href="{{ url_for('login') }}">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if active=='register' %}active{% endif %}" href="{{ url_for('register') }}">Register</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Minimal CSS to align with your design; put in static/style.css if you prefer -->
+<style>
+  .main-navbar {
+    background: #222;
+    color: #fff;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+  .navbar-brand .logo-text {
+    color: #26d0fc;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 1.4rem;
+    text-decoration: none;
+  }
+  .nav { list-style: none; margin: 0; padding: 0; display: flex; gap: 20px; align-items:center; }
+  .nav-link { color: #ddd; text-decoration: none; padding: 8px 6px; }
+  .nav-link:hover { color: #fff; }
+  .nav-link.active { color: #00c9ff; font-weight: 600; }
+  .nav-item { display: inline-block; }
+  @media (max-width: 900px) {
+    .nav { gap: 12px; font-size: 14px; }
+  }
+</style>

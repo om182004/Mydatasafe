@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Two-Factor Authentication | MyDataSafe</title>
+
+  <!-- Bootstrap & Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Orbitron:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .hero {
+      background: linear-gradient(135deg, #fc5c7d, #6a82fb);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .content {
+      padding: 40px 20px;
+    }
+    .content h2 {
+      font-weight: 600;
+    }
+    .content p {
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+
+  {% include 'navbar.html' %}
+
+  <div class="hero">
+    <h1>Two-Factor Authentication (2FA)</h1>
+    <p>Double your login protection with an extra layer of security.</p>
+  </div>
+
+  <div class="container content">
+    <h2>Why Use 2FA?</h2>
+    <p>
+      Two-Factor Authentication adds an extra step to your login process by requiring a second form of verification 
+      like a code sent to your phone or an authenticator app. Even if someone has your password, they can’t log in without the second factor.
+    </p>
+
+    <h2>Popular 2FA Apps</h2>
+    <ul>
+      <li>Google Authenticator</li>
+      <li>Authy</li>
+      <li>Microsoft Authenticator</li>
+      <li>Duo Security</li>
+    </ul>
+
+    <h2>Tips</h2>
+    <ul>
+      <li>Enable 2FA wherever available – email, social media, banking, etc.</li>
+      <li>Use an authenticator app instead of SMS when possible for stronger security.</li>
+      <li>Keep backup codes safe in case you lose your phone.</li>
+    </ul>
+  </div>
+
+</body>
+</html>
